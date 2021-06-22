@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+</head>
+<body>
+    <center>
+	<form method="post">
+		@csrf
+		<table>
+		<tr>
+			<td>Name</td>
+			<td><input type="text" name="username" value="{{old('username')}}"></td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td><input type="password" name="password" value="{{old('password')}}"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+			<input type="submit" name="Submit" value="submit">
+			<a href="/register"> Signup</a>
+			</td>
+		</tr>
+	</table>
+	</form>
+	
+	<br>
+	{{session('msg')}}
+	<br>
+	@foreach ($errors->all() as $error)
+		{{$error}} <br>
+	@endforeach
+    </center>
+</body>
+</html>
